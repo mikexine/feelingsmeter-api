@@ -1,4 +1,4 @@
-# feelingsmeter-api
+# Feelingsmeter REST API
 This repository contains a Python wrapper for the trained Mallet classifier together with a REST API.
 The REST API currently has 1 endpoint, which allows for classification of strings.
 
