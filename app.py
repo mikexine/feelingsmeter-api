@@ -3,7 +3,7 @@ from classification import Classification
 
 app = Flask(__name__)
 
-@app.route('/', methods=['POST'])
+@app.route('/classify', methods=['POST'])
 def classify():
     """
 

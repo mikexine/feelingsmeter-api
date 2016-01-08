@@ -59,7 +59,7 @@ class Classification:
         os.remove(file_path)
         
         # Return the received data from the mallet classifier
-        parsed_data = Classification.__parse__(stdout, to_json=to_json)
+        parsed_data = list(Classification.__parse__(stdout, to_json=to_json))
         # Slice the last one away (The last dict is empty)
         # TODO: Check if this happens prior to calling Mallet
         # This has a relatively large cost when calls are small
