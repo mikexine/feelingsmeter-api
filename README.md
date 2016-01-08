@@ -12,7 +12,7 @@ In the future this might be dockerized, to make it easy to redistribute.
 This endpoint can be used to classify one-to-many strings of text.
 
 ```
-curl -X POST --data '{"data":["I love dogs","Cats are OK"]}' http://example.com/api/classify/
+curl -X POST --data '{"data":["I love dogs","Cats are OK"]}' http://example.com/api/classify
 ```
 
 HTTP 200 OK Response from server:
