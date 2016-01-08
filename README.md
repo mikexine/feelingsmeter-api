@@ -18,7 +18,7 @@ curl -X POST --data '{"data":["I love dogs","Cats are OK"]}' http://example.com/
 HTTP 200 OK Response from server:
 ```
 {
-  "count": 3,
+  "count": 2,
   "data": [
     {
       "angry": "0.0473874441892395",
@@ -35,8 +35,7 @@ HTTP 200 OK Response from server:
       "fearful": "0.0390528624322823",
       "joy": "0.4468579745598039",
       "text": "Cats are OK"
-    },
-    {}
+    }
   ]
 }
 ```
