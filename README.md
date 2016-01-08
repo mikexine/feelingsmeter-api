@@ -41,3 +41,13 @@ HTTP 200 OK Response from server:
 }
 ```
 
+## Current deployment
+The service is currently deployed using Flask + Gunicorn + Supervisor.
+To stop the service run:
+```
+sudo supervisorctl stop feelingsmeter_v1
+```
+To start it again:
+```
+sudo supervisorctl start feelingsmeter_v1
+```
