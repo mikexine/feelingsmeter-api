@@ -14,8 +14,9 @@ This endpoint can be used to classify one-to-many strings of text.
 ```
 curl -X POST --data '{"data":["I love dogs","Cats are OK"]}' http://example.com/api/classify
 ```
+... Remember to change `example.com` into the appropriate server ip.
 
-HTTP 200 OK Response from server:
+HTTP 200 OK:
 ```
 {
   "count": 2,
@@ -41,7 +42,8 @@ HTTP 200 OK Response from server:
 ```
 
 ## Current deployment
-The service is currently deployed using Flask + Gunicorn + Supervisor.
+The service is currently deployed using Flask + Virtualenv + Gunicorn + Supervisor.
+
 To stop the service run:
 ```
 sudo supervisorctl stop feelingsmeter_v1
@@ -50,3 +52,11 @@ To start it again:
 ```
 sudo supervisorctl start feelingsmeter_v1
 ```
+
+The app can be scaled up to handle more requests by adding more worker threads. This, among other things, can be done in the config file.
+the config file is located in:
+```
+/etc/supervisor/conf.d/feelingsmeter_v1.conf
+```
+
+
