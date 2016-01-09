@@ -9,8 +9,7 @@ In the future this might be dockerized, to make it easy to redistribute.
 ## Usage
 
 ### POST /classify
-This endpoint can be used to classify one-to-many strings of text.
-
+This endpoint can be used to classify one-to-many strings of text. Try keeping each call under 30000 data entries - otherwise you might encounter a HTTP 413 Request entity too large.
 ```
 curl -X POST --data '{"data":["I love dogs","Cats are OK"]}' http://example.com/api/classify
 ```
