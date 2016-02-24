@@ -55,11 +55,10 @@ class Classification:
     @staticmethod
     def single_classification(texts, to_json=False, classifiers_to_include=None):
         file_path = Classification.__write__(texts)
-
-	parsed_data = []
-        
+        parsed_data = []
+  
         if not classifiers_to_include:
-            classifiers = ['pos_neg_classifier', '6_way_classifier', 'aroused_calm_classifier']
+            classifiers = ['pos_neg_classifier', '6_way_classifier', 'aroused_calm_classifier', '27_way_classifier']
         else:
             classifiers = classifiers_to_include
 
@@ -69,7 +68,13 @@ class Classification:
             stdout = check_output(cmd.split())
 
             # Return the received data from the mallet classifier
-            parsed_data += list(Classification.__parse__(stdout, classifier, to_json=to_json))[:-1]
+            
+            data = list(Classification.__parse__(stdout, classifier, to_json=to_json))[:-1]
+            if not parsed_data:
+                parsed_data = data
+            else:
+                for parsed, each in zip(parsed_data, data):
+                    parsed.update(each)
             # Slice the last one away (The last dict is empty)
             # TODO: Check if this happens prior to calling Mallet
             # This has a relatively large cost when calls are small
