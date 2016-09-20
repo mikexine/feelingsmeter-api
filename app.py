@@ -13,13 +13,17 @@ def classify():
     }
     """
     classifiers_to_use = request.args.get('classifiers')
+    use_new_classifier = request.args.get('new_cls')
+    
     if classifiers_to_use:
         classifiers_to_use = classifiers_to_use.split(',')
-
+    elif use_new_classifier:
+        use_new_classifier = (use_new_classifier.lower() == 'true')
+    
     post_payload = request.get_json(force=True)
     cl = Classification()
     data = post_payload['data']
-    predictions = list(cl.single_classification(tuple(data), to_json=True, classifiers_to_include=classifiers_to_use))
+    predictions = list(cl.single_classification(tuple(data), to_json=True, classifiers_to_include=classifiers_to_use, use_new_classifier=use_new_classifier))
     
     for text, preds in zip(data, predictions):
         preds['text'] = text
@@ -29,5 +33,5 @@ def classify():
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8000)
+    app.run(debug=True, port=8081)
 

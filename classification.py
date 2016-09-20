@@ -73,18 +73,23 @@ class Classification:
 
 
     @staticmethod
-    def single_classification(texts, to_json=False, classifiers_to_include=None):
+    def single_classification(texts, to_json=False, classifiers_to_include=None, use_new_classifier=False):
         file_path = Classification.__write__(texts)
         parsed_data = []
   
         if not classifiers_to_include:
-            classifiers = ['pos_neg_classifier', '6_way_classifier', 'aroused_calm_classifier', '27_way_classifier']
+            classifiers = ['pos_neg_classifier', 'aroused_calm_classifier', '27_way_classifier']
+            
+            if use_new_classifier:
+                classifiers.append('new_6_way_classifier')
+            else:
+                classifiers.append('6_way_classifier')
         else:
             classifiers = classifiers_to_include
 
         for classifier in classifiers:
 
-            if classifier == 'new_6_way':
+            if classifier == 'new_6_way_classifier':
                 data = Classification.__apply_scikit_learn_model__(texts, to_json=to_json)
             else:
                 cmd = Classification.__get_command__(file_path, classifier)        
@@ -113,7 +118,7 @@ class Classification:
             for probas in predicted:
                 probability_dict = dict()
                 for proba, label in zip(probas, new_label_order):
-                    probability_dict['new_6_way_' + label] = proba
+                    probability_dict[label.upper()] = proba
                 yield probability_dict
         else:
             yield ValueError('not implemented')
