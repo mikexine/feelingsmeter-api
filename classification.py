@@ -30,7 +30,7 @@ class Classification:
 
         for i, each_line in enumerate(texts):
             tokenized_line = ' '.join(tokenizer.tokenize(each_line.lower()))
-            f.write(tokenized_line)
+            f.write(tokenized_line.encode('utf-8'))
             # Only apply newline if it's not the last line
             if i != texts_len:
                 f.write('\n')
@@ -56,8 +56,6 @@ class Classification:
             keys = output_columns[classifier_name]
             for each_line in output_texts.decode('utf-8').split('\n'):
                 temp_dict = dict()
-                if 'calm_tired_relaxed_sleepy' in each_line:
-                    print(str(each_line))
                 for key, result_tuple in zip(keys, compiled_regex.findall(each_line)):
                     concatenated_number = ''.join(result_tuple)
                     if concatenated_number:
