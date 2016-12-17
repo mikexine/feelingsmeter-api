@@ -3,3 +3,4 @@ env/
 mallet/
 prediction_models/
 *.DS_Store
+config.py
