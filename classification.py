@@ -8,7 +8,7 @@ from nltk.tokenize import RegexpTokenizer
 from sklearn.externals import joblib
 from sklearn.feature_extraction import text
 
-model_path = '/large_volume/home/dan/supplementary_files/mallet_files/classifiers/logisticRegressionAlldata.pkl'
+model_path = 'prediction_models/logisticRegressionAlldata.pkl'
 
 new_6_way_model = joblib.load(model_path)
 new_label_order = ('angry', 'animated', 'empowered', 'fearful', 'joy', 'sad')

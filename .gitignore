@@ -1,0 +1,5 @@
+env/
+*.pyc
+mallet/
+prediction_models/
+*.DS_Store

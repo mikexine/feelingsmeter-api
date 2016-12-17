@@ -1,12 +1,12 @@
 paths = {
-'mallet_bin': '/large_volume/usr/bin/mallet/bin/',
-'mallet': '/large_volume/usr/bin/mallet/bin/mallet',
-#'5_way_classifier': '/large_volume/usr/share/nginx/html/5feelings_angry_animated_empowered_fearful_joy.classifier.trial0',
-'6_way_classifier': '/large_volume/usr/share/nginx/html/6feelings_angry_animated_empowered_fearful_joy_sad.classifier.trial0',
+'mallet_bin': 'mallet/bin/',
+'mallet': 'mallet/bin/mallet',
+#'5_way_classifier': 'prediction_models/5feelings_angry_animated_empowered_fearful_joy.classifier.trial0',
+'6_way_classifier': 'prediction_models/6feelings_angry_animated_empowered_fearful_joy_sad.classifier.trial0',
 'input_dir':'temp/',
-'aroused_calm_classifier': '/large_volume/usr/share/nginx/html/aroused_calm_complete.classifier.trial0',
-'pos_neg_classifier': '/large_volume/usr/share/nginx/html/pos_neg_balanced_trigram_maxent.classifier.trial0',
-'27_way_classifier': '/large_volume/usr/share/nginx/html/28feelings_classes_v3.classifier.trial0'
+'aroused_calm_classifier': 'prediction_models/aroused_calm_complete.classifier.trial0',
+'pos_neg_classifier': 'prediction_models/pos_neg_balanced_trigram_maxent.classifier.trial0',
+'27_way_classifier': 'prediction_models/28feelings_classes_v3.classifier.trial0'
 }
 
 output_columns = {
