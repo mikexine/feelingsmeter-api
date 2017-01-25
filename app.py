@@ -27,9 +27,13 @@ def classify():
     
     for text, preds in zip(data, predictions):
         preds['text'] = text
+        preds["ANGER"] = preds.pop("ANGRY")
+        preds["SADNESS"] = preds.pop("SAD")
+        # preds["JOYFUL"] = preds.pop("JOY")
     
     response = {'count':len(predictions),
                 'data':predictions}
+    
     return jsonify(response)
 
 if __name__ == '__main__':
