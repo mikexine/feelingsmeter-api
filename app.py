@@ -29,6 +29,7 @@ def classify():
         preds['text'] = text
         preds["ANGER"] = preds.pop("ANGRY")
         preds["SADNESS"] = preds.pop("SAD")
+        preds["EXCITEMENT"] = preds.pop("ANIMATED")
         # preds["JOYFUL"] = preds.pop("JOY")
     
     response = {'count':len(predictions),

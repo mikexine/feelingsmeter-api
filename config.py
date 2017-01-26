@@ -11,7 +11,7 @@ paths = {
 
 output_columns = {
 #'5_way_classifier': ('angry', 'animated', 'empowered', 'fearful', 'joy'),
-'6_way_classifier': ('ANGER', 'ANIMATED', 'EMPOWERED', 'FEARFUL', 'JOY', 'SADNESS'),
+'6_way_classifier': ('ANGER', 'EXCITEMENT', 'EMPOWERED', 'FEARFUL', 'JOY', 'SADNESS'),
 'aroused_calm_classifier': ('aroused_excited_angry_pissed', 'calm_tired_relaxed_sleepy'),
 'pos_neg_classifier': ('neg_sad_disgusted_disappointed', 'pos_happy_great_wonderful'),
 '27_way_classifier': ('accomplished', 'amused', 'angry', 'annoyed', 'awesome', 'bad', 'confident', 'confused', 'depressed', 'determined', 'disappointed', 'disgusted', 'down', 'excited', 'fantastic', 'great', 'happy', 'heartbroken', 'hopeful', 'pissed', 'proud', 'pumped', 'sad', 'scared', 'super', 'wonderful', 'worried')
