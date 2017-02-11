@@ -23,14 +23,15 @@ def classify():
     post_payload = request.get_json(force=True)
     cl = Classification()
     data = post_payload['data']
-    predictions = list(cl.single_classification(tuple(data), to_json=True, classifiers_to_include=classifiers_to_use, use_new_classifier=use_new_classifier))
-    
+    predictions = list(cl.single_classification(tuple(data), to_json=True))
+
     for text, preds in zip(data, predictions):
         preds['text'] = text
-        preds["ANGER"] = preds.pop("ANGRY")
-        preds["SADNESS"] = preds.pop("SAD")
-        preds["EXCITEMENT"] = preds.pop("ANIMATED")
+        # preds["ANGER"] = preds.pop("ANGRY")
+        # preds["SADNESS"] = preds.pop("SAD")
+        # preds["EXCITEMENT"] = preds.pop("ANIMATED")
         # preds["JOYFUL"] = preds.pop("JOY")
+    print(predictions)
     
     response = {'count':len(predictions),
                 'data':predictions}
@@ -38,5 +39,5 @@ def classify():
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8081)
+    app.run(debug=True, port=8081, threaded=True)
 
