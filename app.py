@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify
 from classification import Classification
+from word_category_counter import score_text
+
 
 app = Flask(__name__)
 
@@ -27,6 +29,7 @@ def classify():
 
     for text, preds in zip(data, predictions):
         preds['text'] = text
+        preds["affective processes"] = score_text(text).get("Affective Processes")
         # preds["ANGER"] = preds.pop("ANGRY")
         # preds["SADNESS"] = preds.pop("SAD")
         # preds["EXCITEMENT"] = preds.pop("ANIMATED")
