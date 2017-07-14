@@ -29,7 +29,7 @@ def classify():
 
     for text, preds in zip(data, predictions):
         preds['text'] = text
-        preds["affective processes"] = score_text(text).get("Affective Processes")
+        preds["affective processes"] = score_text(text).get("Affective Processes", 0)
         # preds["ANGER"] = preds.pop("ANGRY")
         # preds["SADNESS"] = preds.pop("SAD")
         # preds["EXCITEMENT"] = preds.pop("ANIMATED")
