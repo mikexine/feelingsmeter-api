@@ -25,6 +25,7 @@ def classify():
     post_payload = request.get_json(force=True)
     cl = Classification()
     data = post_payload['data']
+
     predictions = list(cl.single_classification(tuple(data), to_json=True))
 
     for text, preds in zip(data, predictions):
@@ -32,12 +33,12 @@ def classify():
         affect = score_text(text).get("Affective Processes")
         if affect is None:
             affect = 0.0
-        preds["affective processes"] = affect
+        preds["0_affective processes"] = affect
         # preds["ANGER"] = preds.pop("ANGRY")
         # preds["SADNESS"] = preds.pop("SAD")
         # preds["EXCITEMENT"] = preds.pop("ANIMATED")
         # preds["JOYFUL"] = preds.pop("JOY")
-    print(predictions)
+    # print(predictions)
     
     response = {'count':len(predictions),
                 'data':predictions}
